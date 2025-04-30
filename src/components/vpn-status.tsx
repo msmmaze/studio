@@ -2,7 +2,7 @@
 'use client';
 
 import * as React from 'react';
-import { Wifi, WifiOff } from 'lucide-react';
+import { ShieldCheck, ShieldOff } from 'lucide-react'; // Changed icons
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -71,11 +71,11 @@ export function VpnStatus() {
         <CardTitle className="flex items-center justify-between">
           <span>Connection Status</span>
           {status === 'connected' ? (
-            <Wifi className="text-green-600" />
+            <ShieldCheck className="text-green-600" /> // Changed icon
           ) : status === 'disconnected' ? (
-             <WifiOff className="text-destructive" />
+             <ShieldOff className="text-destructive" /> // Changed icon
           ) : (
-             <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary"></div>
+             <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary"></div> // Loading spinner remains
           )
          }
         </CardTitle>
