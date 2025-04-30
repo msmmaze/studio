@@ -1,4 +1,5 @@
 
+
 import { VpnStatus } from '@/components/vpn-status';
 import { VpnSettings } from '@/components/vpn-settings';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,7 +16,7 @@ export default function Home() {
             className="h-12 w-auto text-foreground" // Adjust height as needed, width auto maintains aspect ratio
             aria-label="ArkaNet Logo"
            >
-              {/* Define reusable font style */}
+              {/* Define reusable font style - Using Poppins Bold as a close match */}
               <defs>
                   <style>
                   {`
@@ -24,20 +25,18 @@ export default function Home() {
                   `}
                   </style>
               </defs>
-              {/* Background (optional, if needed for contrast on different themes) */}
-              {/* <rect width="100%" height="100%" fill="transparent"/> */}
 
               {/* "Arka" part - Red */}
-              <text x="0" y="30" className="logo-font" fill="#DC2626"> {/* Using Tailwind's red-600 hex */}
+              {/* Using Tailwind's red-600 hex: #DC2626 */}
+              <text x="0" y="30" className="logo-font" fill="#DC2626">
                 {/* Stylized 'A' with lock */}
                 <tspan>
-                    <tspan dx="-3" dy="-1">A</tspan> {/* Slight adjustment for lock */}
-                    {/* Lock Path on top of 'A' - Simplified */}
-                    <tspan>
-                        <svg x="1" y="-2" width="28" height="15" >
-                            <path d="M 5 15 C 5 7 23 7 23 15" stroke="#DC2626" strokeWidth="4" fill="none"/>
-                             {/* Lock body part - visually integrated */}
-                             {/* <rect x="9" y="10" width="10" height="5" fill="#DC2626" stroke="#DC2626" stroke-width="1"/> */}
+                    <tspan dx="-3" dy="-1">A</tspan> {/* Slight adjustment for lock positioning relative to A */}
+                    {/* Lock Path on top of 'A' - Simplified U-shape */}
+                     <tspan>
+                         {/* Adjusted SVG coordinates and path for the lock */}
+                        <svg x="1" y="-3" width="28" height="15" >
+                            <path d="M 5 14 C 5 6 23 6 23 14" stroke="#DC2626" strokeWidth="4" fill="none"/>
                         </svg>
                     </tspan>
                 </tspan>
@@ -45,12 +44,11 @@ export default function Home() {
               </text>
 
               {/* "Net" part - Foreground color */}
-              <text x="95" y="30" className="logo-font" fill="currentColor"> {/* Use current text color */}
+              <text x="95" y="30" className="logo-font" fill="currentColor"> {/* Use current text color (foreground) */}
                 Net
               </text>
             </svg>
 
-          {/* Removed original h1 and p tags that duplicated the logo */}
            <p className="text-center text-muted-foreground">Securely manage your VPN connection.</p>
         </div>
 
