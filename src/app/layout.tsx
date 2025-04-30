@@ -16,7 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    // Add the 'dark' class here to enable dark mode by default
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} dark`}>
       <body className={`antialiased`}>
         {children}
         <Toaster />
