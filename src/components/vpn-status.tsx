@@ -70,7 +70,7 @@ export function VpnStatus() {
         <CardTitle className="flex items-center justify-between">
           <span>Connection Status</span>
           {status === 'connected' ? (
-            <Wifi className="text-green-500" />
+            <Wifi className="text-green-600" /> {/* Changed from text-green-500 */}
           ) : status === 'disconnected' ? (
              <WifiOff className="text-destructive" />
           ) : (
