@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 
 export const metadata: Metadata = {
-  title: 'VPN Flow',
+  title: 'ArkaNet',
   description: 'An openvpn client with advanced routing features.',
 };
 

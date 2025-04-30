@@ -22,7 +22,7 @@ export default function Home() {
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             <path d="m9 12 2 2 4-4"></path> {/* Checkmark inside shield */}
           </svg>
-          <h1 className="text-3xl font-bold text-foreground">VPN Flow</h1>
+          <h1 className="text-3xl font-bold text-foreground">ArkaNet</h1>
           <p className="text-muted-foreground">Securely manage your VPN connection.</p>
         </div>
 
