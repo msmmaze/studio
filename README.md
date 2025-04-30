@@ -1,6 +1,6 @@
 # ArkaNet
 
-This is a Next.js application designed as an OpenVPN client interface with advanced routing features, built using ShadCN UI components and Genkit for potential AI features.
+This is a Next.js application designed as an OpenVPN client interface with advanced routing features, built using ShadCN UI components.
 
 ## Getting Started Locally
 
@@ -50,7 +50,7 @@ Follow these steps to set up and run the ArkaNet application on your local machi
 
     *   **(Optional) Genkit Development Server:** If you are developing or testing Genkit flows, run the Genkit development server in a *separate terminal*:
         ```bash
-        npm run genkit:watch
+        npm run genkit:dev
         ```
         This starts the Genkit development UI, usually accessible at `http://localhost:4000`.
 
@@ -63,18 +63,41 @@ Follow these steps to set up and run the ArkaNet application on your local machi
     *   Import an `.ovpn` profile (note: this is simulated in the current UI).
 *   Check the browser's developer console and the terminal running `npm run dev` for any errors or logs.
 
-**Building for Production:**
+## Building for Production (Web Deployment)
 
-When you are ready to deploy:
+Next.js applications are web applications. The "compilation" step in Next.js is called **building**. This process optimizes your application and generates the necessary HTML, CSS, and JavaScript files needed to run it efficiently on a web server or hosting platform.
 
 1.  **Build the Application:**
+    Run the following command in your project's root directory:
     ```bash
     npm run build
     ```
+    This command creates an optimized production build in the `.next` folder.
+
 2.  **Start the Production Server:**
+    To run the built application locally (simulating a production environment), use:
     ```bash
     npm run start
     ```
+    This will start a server (often on port 3000 by default, unless configured otherwise) serving the production-ready application.
+
+3.  **Deployment:**
+    The contents of the `.next` folder (along with `package.json`, `node_modules`, and potentially `public` and `.env.production` files) are what you would typically deploy to a hosting provider (like Vercel, Netlify, AWS, a Node.js server, etc.).
+
+## Creating a Downloadable Desktop Application
+
+While Next.js builds a *web* application, if you want a traditional downloadable desktop application (.exe for Windows, .dmg for macOS, .deb/.AppImage for Linux), you need to package the web application using a wrapper technology. Popular options include:
+
+*   **Electron:** A mature framework for building cross-platform desktop apps with JavaScript, HTML, and CSS. It bundles a Chromium browser and Node.js runtime.
+*   **Tauri:** A newer alternative focused on performance and security, using the OS's native web renderer (WebView) and a Rust backend.
+
+**Integrating Electron or Tauri involves:**
+
+1.  Adding the chosen framework (Electron or Tauri) as a development dependency to your project.
+2.  Configuring the build process to first build the Next.js app (`npm run build` and potentially `next export` for static sites) and then package the output using Electron Builder or Tauri CLI.
+3.  Writing some main process code (in Electron or Tauri) to create the application window and load your Next.js app (usually served locally or from the built static files).
+
+Setting up Electron or Tauri is a significant step beyond the scope of this basic Next.js project structure. If you wish to proceed with this, you would need to consult the documentation for Electron or Tauri and integrate them into this project. The output of their build process would be the downloadable installer files you are looking for.
 
 ## Project Structure Highlights
 
@@ -83,7 +106,9 @@ When you are ready to deploy:
 *   `src/components/ui/`: Base ShadCN UI components.
 *   `src/lib/`: Utility functions.
 *   `src/hooks/`: Custom React hooks.
-*   `src/ai/`: Contains Genkit AI-related code (flows, prompts).
+*   `src/ai/`: Contains Genkit AI-related code (flows, prompts) - if used.
 *   `public/`: Static assets.
-*   `styles/`: Global CSS files.
+*   `src/app/globals.css`: Global CSS styles and theme configuration.
+*   `.next/`: Output directory for the production build (created after `npm run build`).
 ```
+
