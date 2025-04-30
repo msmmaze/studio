@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Remove explicit font-family from body, use CSS variables set on html tag in layout.tsx */
+/*
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+*/
 
 @layer base {
   :root {
@@ -84,7 +87,7 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-sans);
+    /* font-family is set via CSS variables on the html tag in layout.tsx */
   }
 }
 
