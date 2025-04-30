@@ -10,41 +10,42 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 bg-background">
       <div className="w-full max-w-md space-y-8">
         <div className="flex flex-col items-center space-y-4">
-           {/* SVG Representation of the ArkaNet Logo */}
+           {/* SVG Representation of the ArkaNet Logo - Revised */}
            <svg
-            viewBox="0 0 200 40" // Adjust viewBox based on desired aspect ratio and detail
-            className="h-12 w-auto text-foreground" // Adjust height as needed, width auto maintains aspect ratio
+            viewBox="0 0 160 45" // Adjusted viewBox for better fit
+            className="h-12 w-auto text-foreground" // Adjust height as needed
             aria-label="ArkaNet Logo"
            >
-              {/* Define reusable font style - Using Poppins Bold as a close match */}
               <defs>
                   <style>
                   {`
                       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-                      .logo-font { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 30px; }
+                      .logo-font { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 30px; fill: currentColor; }
+                      .arka-color { fill: #DC2626; } /* Red for Arka */
                   `}
                   </style>
               </defs>
 
               {/* "Arka" part - Red */}
-              {/* Using Tailwind's red-600 hex: #DC2626 */}
-              <text x="0" y="30" className="logo-font" fill="#DC2626">
-                {/* Stylized 'A' with lock */}
-                <tspan>
-                    <tspan dx="-3" dy="-1">A</tspan> {/* Slight adjustment for lock positioning relative to A */}
-                    {/* Lock Path on top of 'A' - Simplified U-shape */}
-                     <tspan>
-                         {/* Adjusted SVG coordinates and path for the lock */}
-                        <svg x="1" y="-3" width="28" height="15" >
-                            <path d="M 5 14 C 5 6 23 6 23 14" stroke="#DC2626" strokeWidth="4" fill="none"/>
-                        </svg>
-                    </tspan>
-                </tspan>
-                <tspan dx="-18">rka</tspan> {/* Adjust dx to position rest of "Arka" */}
+              <text x="10" y="35" className="logo-font arka-color">
+                A<tspan dx="-2">rka</tspan>
               </text>
 
+              {/* Lock Path on top of 'A' - Positioned absolutely */}
+              {/* Coordinates adjusted by trial & error relative to 'A' position and font size */}
+              <path
+                d="M 17 18 C 17 8 37 8 37 18" // U-shape path (M x1 y1 C cx1 cy1, cx2 cy2, x2 y2)
+                stroke="#DC2626" // Red stroke
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round" // Rounded ends for the lock handle
+              />
+               {/* Optional: Small rectangle for lock body part below handle */}
+               {/* <rect x="19" y="18" width="16" height="8" fill="#DC2626" rx="1" /> */}
+
+
               {/* "Net" part - Foreground color */}
-              <text x="95" y="30" className="logo-font" fill="currentColor"> {/* Use current text color (foreground) */}
+              <text x="85" y="35" className="logo-font"> {/* Adjusted x position */}
                 Net
               </text>
             </svg>
